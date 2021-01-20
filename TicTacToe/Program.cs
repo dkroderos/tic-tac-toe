@@ -12,7 +12,7 @@ namespace TicTacToe
         
         private static int input;
 
-        private static int[] spaceLocations;
+        private static int[] spaceLocations; // An array to easily locate the Tic-Tac-Toe spaces
 
         // Tic Tac Toe Drawing
         private static char[] ticTacToe = {
