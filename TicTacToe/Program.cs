@@ -36,7 +36,8 @@ namespace TicTacToe
                     PlayersTurn(player_O, input, spaceLocations, 'O');
                     if (PlayerHasWon(player_O))
                     {
-                        Console.WriteLine("X has won.");
+                        PrintTicTacToe(ticTacToe);
+                        Console.WriteLine("O has won.");
                         return;
                     }
                 }
@@ -47,6 +48,7 @@ namespace TicTacToe
                     PlayersTurn(player_X, input, spaceLocations, 'X');
                     if (PlayerHasWon(player_X))
                     {
+                        PrintTicTacToe(ticTacToe);
                         Console.WriteLine("X has won.");
                         return;
                     }
@@ -57,12 +59,12 @@ namespace TicTacToe
         static void PlayersTurn(int[] player, int input, int[] spaceLocations, char symbol) // Player is making a turn
         {
             input = int.Parse(Console.ReadLine());
-            if (input < 1 || input > 9)
+            if (input < 1 || input > 9) 
             {
                 Console.Write("Please enter a number in range 1 - 9: ");
                 PlayersTurn(player, input, spaceLocations, symbol);
             }
-            if (spaceLocations[input] != ' ')
+            if (ticTacToe[spaceLocations[input - 1]] != ' ')
             {
                 Console.Write("The coordinate is already occupied: ");
                 PlayersTurn(player, input, spaceLocations, symbol);
@@ -70,25 +72,26 @@ namespace TicTacToe
             else
             {
                 player[input - 1] = input;
-                spaceLocations[input] = symbol;
+                ticTacToe[spaceLocations[input - 1]] = symbol;
             }
         }
 
-        static int[] CreateSpaceLocations() // Make a dictionary to easily change the Tic Tac Toe board
+        static int[] CreateSpaceLocations() // Make an int array to easily change the Tic-Tac-Toe board
         {
-            int[] spaceLocations = {};
+            int[] spaceLocations = { 0, 2, 4, 10, 12, 14, 20, 22, 24};
 
             return spaceLocations;
         }
 
-        private static void PrintTicTacToe(char[,] ticTacToe)
+        private static void PrintTicTacToe(char[] ticTacToe)
         {
             // Prints the Tic Tac Toe
-            for (int i = 0; i < ticTacToe.Length; i++)
+            int i = 0;
+            while (i < ticTacToe.Length)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < 5; j++, i++)
                 {
-                    Console.Write();
+                    Console.Write(ticTacToe[i]);
                 }
                 Console.WriteLine();
             }
