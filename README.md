@@ -1,11 +1,4 @@
 # Tic-Tac-Toe
 This is my implementation of Tic Tac Toe
-
-Coordinates:
-
-1 | 2 | 3
-_________
-4 | 5 | 6
-_________
-7 | 8 | 9
-_________
+Run it on the terminal and use numbers from 1-9 to play
+Please no hate :)
