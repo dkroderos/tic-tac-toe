@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TicTacToe
 {
@@ -8,7 +10,8 @@ namespace TicTacToe
         private static int[] player_O = new int[9]; // Coordinates occupied by the player O
 
         private static int[] player_X = new int[9]; // Coordinates occupied by the player X
-
+        
+        private static int input;
 
         // Tic Tac Toe Drawing
         private static char[,] ticTacToe = {
@@ -21,14 +24,24 @@ namespace TicTacToe
 
         static void Main(string[] args)
         {
-            int turn = 0;
-            for (turn; turn < 9; turn++) 
+            for (int turn = 0; turn < 9; turn++) 
             {
                 if (turn % 2 == 1) // Making sure that players are switching turns 
                 {
-                    
+                    Console.Write("Circle's Turn: ");
+                    input = int.Parse(Console.ReadLine());
+                }
+                else
+                {
+                    Console.Write("X's Turn: ");
+                    input = int.Parse(Console.ReadLine());
                 }
             }
+        }
+
+        static void PlayersTurn(int[] player, int number)
+        {
+
         }
 
         private static void PrintTicTacToe(char[,] ticTacToe)
