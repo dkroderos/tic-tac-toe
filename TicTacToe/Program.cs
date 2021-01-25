@@ -54,6 +54,8 @@ namespace TicTacToe
                     }
                 }
             }
+
+            Console.WriteLine("No one wins.");
         }
 
         static void PlayersTurn(int[] player, int input, int[] spaceLocations, char symbol) // Player is making a turn
@@ -63,17 +65,16 @@ namespace TicTacToe
             {
                 Console.Write("Please enter a number in range 1 - 9: ");
                 PlayersTurn(player, input, spaceLocations, symbol);
+                return;
             }
             if (ticTacToe[spaceLocations[input - 1]] != ' ') // Check if the coordinate chosen by player is available 
             {
                 Console.Write("The coordinate is already occupied: ");
                 PlayersTurn(player, input, spaceLocations, symbol);
+                return;
             }
-            else
-            {
-                player[input - 1] = input;
-                ticTacToe[spaceLocations[input - 1]] = symbol; // Update the tictactoe
-            }
+            player[input - 1] = input;
+            ticTacToe[spaceLocations[input - 1]] = symbol; // Update the tictactoe
         }
 
         static int[] CreateSpaceLocations() // Make an int array to easily change the Tic-Tac-Toe board
